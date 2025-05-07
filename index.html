@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICDL Suomi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- jsPDF-kirjastot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+<body>
+    <div class="min-h-screen">
+        
+        <!-- Navigation -->
+        <nav class="nav"> 
+            <div class="container">
+                <div class="logo img">
+                    <img src="ICDL logo with strap STACKED.png" width="180" alt="ICDL Logo" class="logo img">
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="nav-item" data-section="home">
+                        <i class="fas fa-home"></i><span>Etusivu</span>
+                    </a>
+                    <a href="#courses" class="nav-item" data-section="courses">
+                        <i class="fas fa-book"></i><span>Moduulit</span>
+                    </a>
+                    <a href="#contact" class="nav-item" data-section="contact">
+                        <i class="fas fa-envelope"></i><span>Yhteystiedot</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sections Container -->
+        <div id="sections">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <header class="header">
+                    <div class="container">
+                        <h1>Tervetuloa ICDL Suomeen</h1>
+                        <div class="video-container">
+                            <div class="video-wrapper">
+                                <div id="player1"></div>
+                            </div>
+                            <div class="video-wrapper">
+                                <div id="player2"></div>
+                            </div>
+                        </div>
+                        <div id="certificateContainer" class="certificate-container" style="display: none;">
+                            <button id="downloadCertificate" class="certificate-btn">Lataa sertifikaatti</button>
+                        </div>
+                    </div>
+                </header>
+
+                <main class="main">
+                    <div class="container">
+                        <div class="cards">
+                            <div class="card">
+                                <h2>Digitaalinen osaaminen</h2>
+                                <p>ICDL tarjoaa kansainvälisesti tunnustettuja sertifikaatteja digitaalisen osaamisen todentamiseen.</p>
+                            </div>
+                            <div class="card">
+                                <h2>Joustavat opinnot</h2>
+                                <p>Opiskele omaan tahtiisi ja kehitä osaamistasi juuri sinulle sopivalla tavalla.</p>
+                            </div>
+                            <div class="card">
+                                <h2>Työelämän taidot</h2>
+                                <p>Hanki työelämässä tarvittavat digitaaliset taidot ja todista osaamisesi työnantajille.</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses" class="section">
+                <div class="container">
+                    <h1>Moduulit</h1>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tietotekniikan perusteet">
+                            </div>
+                            <div class="course-content">
+                                <h3>Perustaidot</h3>
+                                <p>Laitteisto, käyttöjärjestelmä ja verkkoviestinnän perusteet</p>
+                                <ul class="course-details">
+                                    <li>Kesto: 4 viikkoa</li>
+                                    <li>Taso: Aloittelija</li>
+                                    <li>Suoritustapa: Verkko-opinnot</li>
+                                </ul>
+                                <button class="course-btn">Lue lisää</button>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1557853197-aefb550b6fdc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Verkossa toimiminen">
+                            </div>
+                            <div class="course-content">
+                                <h3>Toimistosovellukset</h3>
+                                <p>Tekstinkäsittely, taulukkolaskenta, esitysgrafiikka ja online collaboration</p> 
+                                <ul class="course-details">
+                                    <li>Kesto: 3 viikkoa</li>
+                                    <li>Taso: Keskitaso</li>
+                                    <li>Suoritustapa: Verkko-opinnot</li>
+                                </ul>
+                                <button class="course-btn">Lue lisää</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <h1>Ota yhteyttä</h1>
+                    <div class="contact-container">
+                        <form id="contactForm" class="contact-form" action="https://formsubmit.co/altinmehmeti06@hotmail.com" method="POST" > 
+                            <div class="form-group">
+                                <label for="firstName">Etunimi</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Sukunimi</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Sähköposti</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Puhelinnumero</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Viesti</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Lähetä</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h3>Yhteystiedot</h3>
+                        <p>ICDL Suomi</p>
+                        <p>Esimerkkikatu 123</p>
+                        <p>00100 Helsinki</p>
+                        <p>info@icdl.fi</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://linkedin.com" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 ICDL Suomi. Kaikki oikeudet pidätetään.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- YouTube API -->
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+
+    <!-- Oma JavaScript -->
+    <script src="script.js"></script>
+    <script src="logo.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
